@@ -1,0 +1,10 @@
+logging:
+  level: INFO
+
+server:
+  type: simple
+  applicationContextPath: /admin
+  adminContextPath: /dropwizardAdmin
+  connector:
+    type: http
+    port: 8082

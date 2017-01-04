@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin UI</title>
+    <link href="/admin/css/admin-ui.css" rel="stylesheet">
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    
+    <script src="/admin/js/healthCheckSection.jsx" type="text/jsx"></script>
+</head>
+<body>
+    <h1>Hi There!  This is the Admin page.</h1>
+    <p>Click the <i>[refresh]</i> control for current health results.</p>
+    <div id="healthChecks"></div>
+    
+    <script type="text/babel">
+      renderHealthSection('healthChecks');
+    </script>
+</body>
+</html>

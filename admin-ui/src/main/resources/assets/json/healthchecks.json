@@ -1,0 +1,11 @@
+{ "healthChecks": [
+        {
+            "name": "Gateway",
+            "url": "http://localhost:8080/health"
+        },
+        {
+            "name": "Device-ui",
+            "url": "http://localhost:8081/health"
+        }
+    ]
+}

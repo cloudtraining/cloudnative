@@ -1,0 +1,10 @@
+redis:
+  image: redis
+  ports:
+    - "6379:6379"
+
+graphite:
+  image: sitespeedio/graphite
+  ports:
+    - "8780:80"
+    - "2003:2003"
