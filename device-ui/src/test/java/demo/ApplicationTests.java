@@ -61,7 +61,7 @@ public class ApplicationTests {
     public void archaiusLoadMetricsConsoleRefreshInterval() {
         ConfigurationManager.getDeploymentContext().setDeploymentEnvironment("development");
         long metricsConsoleRefreshInterval = DynamicPropertyFactory.getInstance().getLongProperty("metricsConsoleRefreshInterval", 60).get();
-        assertEquals(Long.parseLong("10"), metricsConsoleRefreshInterval);
+        assertEquals(Long.parseLong("90"), metricsConsoleRefreshInterval);
     }
 
     @Test
