@@ -3,8 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.arity</groupId>
-		<artifactId>referenceApp</artifactId>
+		<artifactId>referenceapp</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>admin-ui</artifactId>
 
