@@ -10,6 +10,7 @@
 
 	<modules>
 		<module>gateway</module>
+		<module>auth-service</module>
 		<module>service-registry</module>
 		<module>device-ui</module>
 		<module>device-service</module>
