@@ -1,5 +1,6 @@
-insert into user(id, name, login, password) values (1,'Scott Kramer','skramer','password');
-insert into user(id, name, login, password) values (2,'Sherjeel Ghouse','sghouse','password');
+
+insert into user(id, name, login, password) values (1,'Scott Kramer','skramer@visualsuccess.com','password');
+insert into user(id, name, login, password) values (2,'Sherjeel Ghouse','sherjeel.ghouse@gmail.com','password');
 
 
 insert into role(id, name) values (1,'ROLE_USER');
