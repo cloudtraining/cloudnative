@@ -36,11 +36,11 @@ public class AuthorizationDataLoader implements ApplicationListener<ContextRefre
         userRepository.save(u1);
 
         User u2 = new User();
-        u1.setId(2);
-        u1.setLogin("scott.kramer@visualsuccess.org");
-        u1.setName("Scott Kramer");
-        u1.getRoles().add(roleAdmin);
-        u1.getRoles().add(roleUser);
+        u2.setId(2);
+        u2.setLogin("scott.kramer@visualsuccess.org");
+        u2.setName("Scott Kramer");
+        u2.getRoles().add(roleAdmin);
+        u2.getRoles().add(roleUser);
         userRepository.save(u2);
     }
 }
