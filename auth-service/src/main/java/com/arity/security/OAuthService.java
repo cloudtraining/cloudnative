@@ -43,11 +43,6 @@ public class OAuthService extends WebSecurityConfigurerAdapter {
         return principal;
     }
 
-    public static void main(String[] args) {
-
-        SpringApplication.run(OAuthService.class, args);
-    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**")
