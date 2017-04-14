@@ -22,6 +22,9 @@
             <p><button ng-click="home.logout()" class="btn btn-primary">Logout</button></p>
         </div>
     </nav>
+    <div class="container text-danger" ng-show="home.error">
+        There was an error (bad credentials).
+    </div>
     <div class="container" ng-show="!home.authenticated">
         <form role="form" ng-submit="home.login()">
             <div class="form-group">

@@ -35,6 +35,8 @@ public class OAuthService extends WebSecurityConfigurerAdapter {
     @RequestMapping(value = "/user")
     public Principal user(Principal principal) {
 
+        // TODO: Update authenticated user in DB and perform Authorization
+
         return principal;
     }
 

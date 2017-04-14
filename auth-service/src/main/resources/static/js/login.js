@@ -12,6 +12,10 @@ angular.module("app", []).controller("home", function($http) {
     });
 
     self.logout = function() {
+      if ($location.absUrl().indexOf("error=true") >= 0) {
+            self.authenticated = false;
+            self.error = true;
+      }
       $http.post('/logout', {}).success(function() {
         self.authenticated = false;
         $location.path("/");
