@@ -18,29 +18,29 @@ public class AuthorizationDataLoader implements ApplicationListener<ContextRefre
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-
+        /*
         Role roleAdmin = new Role();
         roleAdmin.setId(1);
         roleAdmin.setName("ROLE_ADMIN");
-
-        Role roleUser = new Role();
-        roleUser.setId(2);
-        roleUser.setName("ROLE_USER");
 
         User u1 = new User();
         u1.setId(1);
         u1.setLogin("sherjeel.ghouse@gmail.com");
         u1.setName("Sherjeel Ghouse");
         u1.getRoles().add(roleAdmin);
-        u1.getRoles().add(roleUser);
         userRepository.save(u1);
+
+        Role roleUser = new Role();
+        roleUser.setId(2);
+        roleUser.setName("ROLE_USER");
 
         User u2 = new User();
         u2.setId(2);
         u2.setLogin("scott.kramer@visualsuccess.org");
         u2.setName("Scott Kramer");
-        u2.getRoles().add(roleAdmin);
         u2.getRoles().add(roleUser);
         userRepository.save(u2);
+
+        */
     }
 }
