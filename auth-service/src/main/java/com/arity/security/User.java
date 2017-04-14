@@ -1,4 +1,4 @@
-package com.arity;
+package com.arity.security;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

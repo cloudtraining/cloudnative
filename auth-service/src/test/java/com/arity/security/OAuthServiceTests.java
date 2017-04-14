@@ -1,4 +1,4 @@
-package com.arity;
+package com.arity.security;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

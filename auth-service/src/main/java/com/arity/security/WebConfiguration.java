@@ -1,4 +1,4 @@
-package com.arity;
+package com.arity.security;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;

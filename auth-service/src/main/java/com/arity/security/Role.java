@@ -1,4 +1,4 @@
-package com.arity;
+package com.arity.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;

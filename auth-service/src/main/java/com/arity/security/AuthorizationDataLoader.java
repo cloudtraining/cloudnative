@@ -1,4 +1,4 @@
-package com.arity;
+package com.arity.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
