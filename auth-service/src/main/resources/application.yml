@@ -1,5 +1,4 @@
-security:
-  oauth2:
+facebook:
     client:
       clientId: 138461186690091
       clientSecret: 594b5a666de8a73046b2ab0a33d13922
