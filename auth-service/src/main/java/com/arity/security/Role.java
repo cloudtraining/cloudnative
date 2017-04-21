@@ -18,6 +18,7 @@ class Role implements GrantedAuthority {
     private Integer id;
 
     @NotEmpty
+    @Column
     private String name;
 
     @JsonIgnore

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "Users")
 class User {
 
     @Id
@@ -14,13 +14,18 @@ class User {
     private Integer id;
 
     @NotEmpty
+    @Column(name = "username")
     private String name;
 
     @NotEmpty
     @Column(unique = true, nullable = false)
     private String login;
 
+    @Column(nullable = true)
     private String password;
+
+    @Column(nullable = true)
+    private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "role_id")})
@@ -68,6 +73,14 @@ class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean getDisabled() {
+        return enabled;
+    }
+
+    public void setDisabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public Set<Role> getRoles() {

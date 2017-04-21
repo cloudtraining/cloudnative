@@ -1,60 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<title>Facebook Login for app!</title>
-	<meta name="description" content=""/>
-	<meta name="viewport" content="width=device-width"/>
-	<base href="/"/>
-	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/webjars/angularjs/angular.min.js"></script>
-	<script type="text/javascript" src="js/login.js"></script>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Facebook Login for app!</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+    <base href="/"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/webjars/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
 </head>
 <body ng-app="app" ng-controller="home as home">
 
 <nav class="navbar navbar-default">
-	<a class="brand" href='#/'>Home</a>
-	<div class="navbar-right" ng-show="home.authenticated">
-		Logged in as: <span ng-bind="home.user"></span>
-		<p><button ng-click="home.logout()" class="btn btn-primary">Logout</button></p>
-	</div>
+    <a class="brand" href='#/'>Home</a>
+    <div class="navbar-right" ng-show="home.authenticated">
+        Logged in as: <span ng-bind="home.user"></span>
+        <p>
+            <button ng-click="home.logout()" class="btn btn-primary">Logout</button>
+        </p>
+    </div>
 </nav>
 <div class="container text-danger" ng-show="home.error">
-	There was an error (bad credentials).
+    There was an error (bad credentials).
 </div>
 <div class="container" ng-show="!home.authenticated">
-	<form role="form" ng-submit="home.login()">
-		<div class="form-group">
-			<label for="username">Username:</label>
-			<input type="text"
-				   class="form-control" id="username"
-				   name="username"
-				   ng-model="home.credentials.username"/>
-		</div>
-		<div class="form-group">
-			<label for="password">Password:</label>
-			<input type="password"
-				   class="form-control" id="password"
-				   name="password"
-				   ng-model="home.credentials.password"/>
-		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
+    <form role="form" ng-submit="home.login()">
+        <div class="form-group">
+            <label for="username">Username:</label> <input type="text"
+                                                           class="form-control" id="username" name="username"
+                                                           ng-model="home.credentials.username"/>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label> <input type="password"
+                                                           class="form-control" id="password" name="password"
+                                                           ng-model="home.credentials.password"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
 </div>
 <br/>
 <div class="container" ng-show="!home.authenticated">
-	Login with: <a href="/login/facebook">Facebook</a>
+    Login with: <a href="/login/facebook">Facebook</a>
 </div>
 <br/>
 <div class="container" ng-show="home.authenticated">
-	<a class="btn btn-primary" href="/ui/">Device</a>
+    <a class="btn btn-primary" href="/ui/">Device</a>
 </div>
 <br/>
 <div class="container" ng-show="home.authenticated && home.admin">
-	<a class="btn btn-primary" href="/admin/">Admin</a>
+    <a class="btn btn-primary" href="/admin/">Admin</a>
 </div>
 </body>
 </html>
