@@ -63,7 +63,7 @@ public class OAuthService extends WebSecurityConfigurerAdapter {
 
         Map<String, String> authenticationDetails = (LinkedHashMap<String, String>) authentication.getDetails();
 
-        UserDetails user = userDetailsService.loadUserByUsername(authenticationDetails.get("name"));
+        // UserDetails user = userDetailsService.loadUserByUsername(authenticationDetails.get("name"));
 
         return principal;
     }
