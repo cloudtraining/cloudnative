@@ -55,7 +55,7 @@ public class OAuthService extends WebSecurityConfigurerAdapter {
 
 
     @RequestMapping("/socialUser")
-    public Principal user(Principal principal) {
+    public Principal socialUser(Principal principal) {
 
         OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) principal;
 
@@ -65,13 +65,12 @@ public class OAuthService extends WebSecurityConfigurerAdapter {
 
         UserDetails user = userDetailsService.loadUserByUsername(authenticationDetails.get("name"));
 
-
         return principal;
     }
 
     @RequestMapping("/user")
     @ResponseBody
-    public Map<String, Object> login(Principal user) {
+    public Map<String, Object> user(Principal user) {
         Map<String, Object> map = new LinkedHashMap<String, Object>();
         map.put("name", user.getName());
         map.put("roles", AuthorityUtils.authorityListToSet(((Authentication) user)
