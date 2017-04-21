@@ -1,15 +1,14 @@
 angular.module("app", []).controller("home", function($http) {
     var self = this;
 
-
     $http.get("/socialUser").success(function(data) {
       if(data.userAuthentication != undefined) {
-          self.user = data.userAuthentication.details.name;
+          self.user = data.name;
           self.authenticated = true;
           self.admin = data && data.roles && data.roles.indexOf("ROLE_ADMIN")>-1;
       }
     }).error(function() {
-      self.user = "N/A";
+      self.user = '';
       self.authenticated = false;
       self.admin = false;
     });
@@ -42,7 +41,7 @@ angular.module("app", []).controller("home", function($http) {
               self.authenticated = true;
               self.admin = data && data.roles && data.roles.indexOf("ROLE_ADMIN")>-1;
             }).error(function() {
-              self.user = "N/A";
+              self.user = '';
               self.authenticated = false;
               self.admin = false;
             });
@@ -51,7 +50,6 @@ angular.module("app", []).controller("home", function($http) {
     self.logout = function() {
           $http.post('/logout', {}).success(function() {
             self.authenticated = false;
-            $location.path("/");
           }).error(function(data) {
             console.log("Logout failed")
             self.authenticated = false;

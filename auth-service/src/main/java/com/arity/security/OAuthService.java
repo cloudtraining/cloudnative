@@ -21,6 +21,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter;
@@ -38,9 +39,11 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.Filter;
 import javax.sql.DataSource;
 import java.security.Principal;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
+/**
+ * Created by sherjeelg on 4/20/2017.
+ */
 @SpringBootApplication
 @RestController
 @EnableOAuth2Client
@@ -51,11 +54,14 @@ public class OAuthService extends WebSecurityConfigurerAdapter {
     OAuth2ClientContext oauth2ClientContext;
 
     @Autowired
-    private AuthUserDetailsService userDetailsService;
+    AuthUserDetailsService userDetailsService;
+
+    @Autowired
+    SocialLoginAuthorizationManager socialLoginAuthorizationManager;
 
 
     @RequestMapping("/socialUser")
-    public Principal socialUser(Principal principal) {
+    public Map<String, Object> socialUser(Principal principal) {
 
         OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) principal;
 
@@ -63,26 +69,47 @@ public class OAuthService extends WebSecurityConfigurerAdapter {
 
         Map<String, String> authenticationDetails = (LinkedHashMap<String, String>) authentication.getDetails();
 
-        // UserDetails user = userDetailsService.loadUserByUsername(authenticationDetails.get("name"));
+        UserDetails user = null;
 
-        return principal;
+        try {
+            user = userDetailsService.loadUserByLogin(authenticationDetails.get("id"));
+        } catch (UsernameNotFoundException e) {
+        }
+
+        if (user == null) {
+            socialLoginAuthorizationManager.addSocialUser(principal);
+            user = userDetailsService.loadUserByLogin(authenticationDetails.get("id"));
+        }
+
+        Map<String, Object> map = new LinkedHashMap<String, Object>();
+
+        map.put("userAuthentication", authentication.isAuthenticated());
+
+        map.put("name", user.getUsername());
+
+        map.put("roles", authoritiesAsSet(user.getAuthorities()));
+
+        return map;
     }
 
-    @RequestMapping("/user")
-    @ResponseBody
-    public Map<String, Object> user(Principal user) {
-        Map<String, Object> map = new LinkedHashMap<String, Object>();
-        map.put("name", user.getName());
-        map.put("roles", AuthorityUtils.authorityListToSet(((Authentication) user)
-                .getAuthorities()));
-        return map;
+    public static Set<String> authoritiesAsSet(Collection<? extends GrantedAuthority> userAuthorities) {
+        Set authoritiesAsSet = new HashSet(userAuthorities.size());
+
+        Iterator<? extends GrantedAuthority> iterator = userAuthorities.iterator();
+
+        while (iterator.hasNext()) {
+            GrantedAuthority authority = (GrantedAuthority) iterator.next();
+            authoritiesAsSet.add(authority.getAuthority());
+        }
+
+        return authoritiesAsSet;
     }
 
     @Override
     @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
-        http.formLogin().and().antMatcher("/**").authorizeRequests().antMatchers("/", "/login**", "/webjars/**").permitAll().anyRequest()
+        http.formLogin().and().antMatcher("/**").authorizeRequests().antMatchers("/", "/login**", "/img/**", "/webjars/**").permitAll().anyRequest()
                 .authenticated().and().exceptionHandling()
                 .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/")).and().logout()
                 .logoutSuccessUrl("/").permitAll().and().csrf()
@@ -145,5 +172,4 @@ public class OAuthService extends WebSecurityConfigurerAdapter {
             auth.userDetailsService(userDetailsService);
         }
     }
-
 }

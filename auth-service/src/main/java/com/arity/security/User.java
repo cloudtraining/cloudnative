@@ -6,8 +6,11 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by sherjeelg on 4/20/2017.
+ */
 @Entity(name = "Users")
-class User {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -75,11 +78,11 @@ class User {
         this.password = password;
     }
 
-    public boolean getDisabled() {
+    public boolean getEnabled() {
         return enabled;
     }
 
-    public void setDisabled(boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 

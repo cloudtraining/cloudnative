@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Facebook Login for app!</title>
+    <title>Arity Login</title>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width"/>
     <base href="/"/>
@@ -14,14 +14,22 @@
     <script type="text/javascript" src="js/login.js"></script>
 </head>
 <body ng-app="app" ng-controller="home as home">
-
+<div class="page-header">
+    <h1 class="text-center">Arity LLC.</h1>
+</div>
 <nav class="navbar navbar-default">
-    <a class="brand" href='#/'>Home</a>
-    <div class="navbar-right" ng-show="home.authenticated">
-        Logged in as: <span ng-bind="home.user"></span>
-        <p>
-            <button ng-click="home.logout()" class="btn btn-primary">Logout</button>
-        </p>
+    <div class="row">
+        <div class="col-sm-6">
+            <a class="brand" href='#/'><h3>Home</h3></a>
+        </div>
+        <div class="col-sm-6">
+            <div class="navbar-right" ng-show="home.authenticated">
+                <h4><span ng-bind="home.user"></span></h4>
+                <p>
+                    <button ng-click="home.logout()" class="btn btn-primary">Sign out</button>
+                </p>
+            </div>
+        </div>
     </div>
 </nav>
 <div class="container text-danger" ng-show="home.error">
@@ -29,22 +37,32 @@
 </div>
 <div class="container" ng-show="!home.authenticated">
     <form role="form" ng-submit="home.login()">
-        <div class="form-group">
-            <label for="username">Username:</label> <input type="text"
-                                                           class="form-control" id="username" name="username"
-                                                           ng-model="home.credentials.username"/>
+        <div class="form-group row">
+             <div class="col-sm-6">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                       ng-model="home.credentials.username"/>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password:</label> <input type="password"
-                                                           class="form-control" id="password" name="password"
-                                                           ng-model="home.credentials.password"/>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                       ng-model="home.credentials.password"/>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-6">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+        </div>
     </form>
 </div>
-<br/>
+<hr/>
 <div class="container" ng-show="!home.authenticated">
-    Login with: <a href="/login/facebook">Facebook</a>
+    <div class="form-group col-lg-8">
+        <a href="/login/facebook">
+            <img src="/img/fb.png" alt="FB Login">
+        </a>
+    </div>
 </div>
 <br/>
 <div class="container" ng-show="home.authenticated">
@@ -53,6 +71,10 @@
 <br/>
 <div class="container" ng-show="home.authenticated && home.admin">
     <a class="btn btn-primary" href="/admin/">Admin</a>
+</div>
+<hr/>
+<div class="page-footer">
+    <h6 class="text-center">Copyright 2017 Arity LLC. All rights reserved</h6>
 </div>
 </body>
 </html>

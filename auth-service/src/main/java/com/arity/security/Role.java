@@ -8,8 +8,11 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by sherjeelg on 4/20/2017.
+ */
 @Entity
-class Role implements GrantedAuthority {
+public class Role implements GrantedAuthority {
 
     private static final long serialVersionUID = 1L;
 

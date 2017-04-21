@@ -32,6 +32,15 @@ public class AuthUserDetailsService implements UserDetailsService {
         return new UserRepositoryUserDetails(user);
     }
 
+    public UserDetails loadUserByLogin(String login) throws UsernameNotFoundException {
+
+        User user = userRepository.findByLogin(login);
+        if (user == null) {
+            throw new UsernameNotFoundException(String.format("User %s does not exist!", login));
+        }
+        return new UserRepositoryUserDetails(user);
+    }
+
     private final static class UserRepositoryUserDetails extends User implements UserDetails {
 
         private static final long serialVersionUID = 1L;
@@ -47,7 +56,7 @@ public class AuthUserDetailsService implements UserDetailsService {
 
         @Override
         public String getUsername() {
-            return getLogin();
+            return getName();
         }
 
         @Override
