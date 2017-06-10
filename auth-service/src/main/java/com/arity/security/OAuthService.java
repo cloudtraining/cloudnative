@@ -163,12 +163,8 @@ public class OAuthService extends WebSecurityConfigurerAdapter {
         @Autowired
         private AuthUserDetailsService userDetailsService;
 
-        @Autowired
-        DataSource dataSource;
-
         @Override
         public void init(AuthenticationManagerBuilder auth) throws Exception {
-            auth.jdbcAuthentication().dataSource(this.dataSource);
             auth.userDetailsService(userDetailsService);
         }
     }
