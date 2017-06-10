@@ -19,7 +19,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
@@ -33,13 +32,15 @@ import org.springframework.security.web.authentication.LoginUrlAuthenticationEnt
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.Filter;
-import javax.sql.DataSource;
 import java.security.Principal;
-import java.util.*;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by sherjeelg on 4/20/2017.
@@ -93,16 +94,7 @@ public class OAuthService extends WebSecurityConfigurerAdapter {
     }
 
     public static Set<String> authoritiesAsSet(Collection<? extends GrantedAuthority> userAuthorities) {
-        Set authoritiesAsSet = new HashSet(userAuthorities.size());
-
-        Iterator<? extends GrantedAuthority> iterator = userAuthorities.iterator();
-
-        while (iterator.hasNext()) {
-            GrantedAuthority authority = (GrantedAuthority) iterator.next();
-            authoritiesAsSet.add(authority.getAuthority());
-        }
-
-        return authoritiesAsSet;
+        return userAuthorities.stream().map(authority -> authority.getAuthority()).collect(Collectors.toSet());
     }
 
     @Override
