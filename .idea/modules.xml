@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin-ui/admin-ui.iml" filepath="$PROJECT_DIR$/admin-ui/admin-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactnative/node_modules/react-native/ReactAndroid/src/androidTest/androidTest.iml" filepath="$PROJECT_DIR$/reactnative/node_modules/react-native/ReactAndroid/src/androidTest/androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/auth-service/auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/device-service/device-service.iml" filepath="$PROJECT_DIR$/device-service/device-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/device-ui/device-ui.iml" filepath="$PROJECT_DIR$/device-ui/device-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hystrix-dashboard/hystrix-dashboard.iml" filepath="$PROJECT_DIR$/hystrix-dashboard/hystrix-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactnative/reactnative.iml" filepath="$PROJECT_DIR$/reactnative/reactnative.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-registry/service-registry.iml" filepath="$PROJECT_DIR$/service-registry/service-registry.iml" />
+    </modules>
+  </component>
+</project>

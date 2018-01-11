@@ -1,0 +1,141 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.arity.security.OAuthService",
+      "name": "facebook.client",
+      "sourceMethod": "facebook()",
+      "type": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails"
+    },
+    {
+      "sourceType": "com.arity.security.OAuthService",
+      "name": "facebook.resource",
+      "sourceMethod": "facebookResource()",
+      "type": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties",
+      "name": "facebook.resource.jwk",
+      "sourceMethod": "getJwk()",
+      "type": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties$Jwk"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties",
+      "name": "facebook.resource.jwt",
+      "sourceMethod": "getJwt()",
+      "type": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties$Jwt"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.access-token-uri",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.authentication-scheme",
+      "type": "org.springframework.security.oauth2.common.AuthenticationScheme"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.client-authentication-scheme",
+      "type": "org.springframework.security.oauth2.common.AuthenticationScheme"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.client-id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.client-secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.grant-type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.pre-established-redirect-uri",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.scope",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.token-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.use-current-uri",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails",
+      "name": "facebook.client.user-authorization-uri",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties",
+      "name": "facebook.resource.filter-order",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties",
+      "name": "facebook.resource.id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties$Jwk",
+      "name": "facebook.resource.jwk.key-set-uri",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties$Jwt",
+      "name": "facebook.resource.jwt.key-uri",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties$Jwt",
+      "name": "facebook.resource.jwt.key-value",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties",
+      "name": "facebook.resource.prefer-token-info",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties",
+      "name": "facebook.resource.service-id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties",
+      "name": "facebook.resource.token-info-uri",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties",
+      "name": "facebook.resource.token-type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties",
+      "name": "facebook.resource.user-info-uri",
+      "type": "java.lang.String"
+    }
+  ]
+}

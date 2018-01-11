@@ -1,0 +1,8 @@
+/home/debian/IdeaProjects/referenceapp/auth-service/src/main/java/com/arity/security/UserPasswordAuthService.java
+/home/debian/IdeaProjects/referenceapp/auth-service/src/main/java/com/arity/security/SocialLoginAuthorizationManager.java
+/home/debian/IdeaProjects/referenceapp/auth-service/src/main/java/com/arity/security/UserRepository.java
+/home/debian/IdeaProjects/referenceapp/auth-service/src/main/java/com/arity/security/User.java
+/home/debian/IdeaProjects/referenceapp/auth-service/src/main/java/com/arity/security/Role.java
+/home/debian/IdeaProjects/referenceapp/auth-service/src/main/java/com/arity/security/AuthUserDetailsService.java
+/home/debian/IdeaProjects/referenceapp/auth-service/src/main/java/com/arity/security/OAuthService.java
+/home/debian/IdeaProjects/referenceapp/auth-service/src/main/java/com/arity/security/RoleRepository.java

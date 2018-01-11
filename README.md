@@ -1,9 +1,3 @@
-**Welcome to Arity!**
-===================
-
-**Arity** is a technology company that analyzes billions of miles of driving data to generate insights and scores that help our partners better evaluate risk and revolutionize driver safety, connectivity and value.
-
-At **Arity**, we believe in using the best tech tools.  We also believe in helping the technical community grow, and we decided to put together a reference application to help our developers and you learn the latest tech tools and techniques.  The below application is designed to showcase many tech tools we use in the most simplistic manner possible.  The app is designed to show/teach the tools and provide a simple app you can copy and enhance.
 
 *Currently this app showcases the following technologies*:
 *Spring Boot, REST, ZUUL, SSO, Redis, Swagger, Hystrix, Turbine, Graphite, DropWizard, DropWizard Metrics, Docker, Docker Compose, Maven, AngularJS, ReactJS, Eureka*

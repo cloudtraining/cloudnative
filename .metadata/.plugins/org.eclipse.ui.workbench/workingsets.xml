@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1491414456980_1" label="referenceapp" name="referenceapp">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/device-service" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/gateway" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/hystrix-dashboard" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/service-registry" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/admin-ui" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/device-ui" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1483823270802_0" label="Window Working Set" name="Aggregate for window 1483823270802"/>
+</workingSetManager>
