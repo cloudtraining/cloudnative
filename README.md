@@ -92,3 +92,7 @@ How to Use The Reference App
      Go to http://192.168.99.100:8780
      login: guest/guest
      <br>
+ 6. TEST SWAGGER<br>
+     Go to http://localhost:9091/swagger-ui.html
+     login: guest/guest
+     <br>
