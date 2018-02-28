@@ -75,6 +75,7 @@ How to Use The Reference App
  2. TEST HYSTRIX<br>
      Go to http://localhost:8686/hystrix<br>
      Enter stream http://localhost:8080/hystrix.stream<br>
+     --> note that the monitor shows only methods failing, so initially it will show nothing<br>
      Click Monitor button<br>
      Test a failure Go to http://localhost:8080/epicfail/1<br>
      <br>
