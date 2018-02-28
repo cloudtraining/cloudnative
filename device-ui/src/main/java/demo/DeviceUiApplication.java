@@ -5,7 +5,9 @@ import com.codahale.metrics.annotation.Counted;
 import com.codahale.metrics.annotation.Timed;
 import com.codahale.metrics.graphite.Graphite;
 import com.codahale.metrics.graphite.GraphiteReporter;
-import com.netflix.config.*;
+import com.netflix.config.ConfigurationManager;
+import com.netflix.config.DynamicBooleanProperty;
+import com.netflix.config.DynamicPropertyFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,10 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.sleuth.Span;
+import org.springframework.cloud.sleuth.Tracer;
+import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -55,6 +61,18 @@ public class DeviceUiApplication {
     @Value("${graphite.host}")
     @Autowired
     private String graphiteHost;
+
+    @Autowired
+    RestTemplate restTemplate;
+
+    @Bean
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
+    @Bean
+    public AlwaysSampler alwaysSampler() {
+        return new AlwaysSampler();
+    }
 
     //Metrics Reporting
     public DeviceUiApplication() {
@@ -127,6 +145,7 @@ public class DeviceUiApplication {
     @ResponseBody
     void addDevice(@ModelAttribute("devices") List<Device> devices, @RequestBody Device device) {
 
+
         //Archaius Dynamic Property Loading
         Boolean gatherStatistics = dynamicBooleanProperty.get();
         if (gatherStatistics) {
@@ -137,6 +156,10 @@ public class DeviceUiApplication {
         String identifier = idGeneratorService.generateIdentifier(serviceUrl() + "/device/idGenerator");
         device.setIdentifier(identifier);
         devices.add(device);
+
+        // Sleuth/Zipkin
+        //TODO: Add a Transactional SPAN - Span newSpan = tracer.createSpan("Span-SleuthTransactionTraceTag");
+        slfjLogger.info("### <=== SLEUTH-TAGS === ###");
 
         if (gatherStatistics) { timerAddDevice.time().stop(); };
     }
@@ -160,9 +183,6 @@ public class DeviceUiApplication {
         return new ArrayList<Device>();
     }
 
-
-    @Autowired
-    private RestTemplate restTemplate;
 
     public String generateIdentifier(String serviceUrl) {
         String identifier = restTemplate.getForObject(serviceUrl, String.class);

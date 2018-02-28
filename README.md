@@ -97,3 +97,10 @@ How to Use The Reference App
      Go to http://localhost:9091/swagger-ui.html
      login: guest/guest
      <br>
+ 7. LOOK AT EUREKA<br>
+    Go To http://localhost:8761<br>
+    <br>
+ 8. LOOK AT ZIPKIN/SLEUTH<br>
+    Start Zipkin Docker Container via:<br> 
+    docker run -d -p 9411:9411 openzipkin/zipkin<br>
+    Go To localhost:9411/zipkin<br>   

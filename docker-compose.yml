@@ -8,3 +8,8 @@ graphite:
   ports:
     - "8780:80"
     - "2003:2003"
+
+ zipkin:
+  image: openzipkin/zipkin
+  ports:
+    - "9411:9411"
