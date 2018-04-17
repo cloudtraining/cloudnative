@@ -80,7 +80,7 @@ How to Use The Reference App
      Test a failure Go to http://localhost:8080/epicfail/1<br>
      <br>
  3. TEST TURBINE<br>
-     Go to localhost:8686/hystrix<br>
+     Go to http://localhost:8686/hystrix<br>
      Enter stream<br>
      *http://localhost:8686/turbine.stream?cluster=SAMPLE-HYSTRIX-AGGREGATE*<br>
      Click Monitor button<br>
@@ -90,7 +90,7 @@ How to Use The Reference App
      Go to console for device-ui<br>
      <br>
  5. TEST GRAPHITE<br>
-     Go to http://192.168.99.100:8780
+     Go to http://localhost:8780
      login: guest/guest
      <br>
  6. TEST SWAGGER<br>
