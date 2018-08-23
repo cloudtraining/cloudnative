@@ -103,4 +103,4 @@ How to Use The Reference App
  8. LOOK AT ZIPKIN/SLEUTH<br>
     Start Zipkin Docker Container via:<br> 
     docker run -d -p 9411:9411 openzipkin/zipkin<br>
-    Go To localhost:9411/zipkin<br>   
+    Go To http://localhost:9411<br>   
